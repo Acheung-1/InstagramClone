@@ -7,6 +7,7 @@ const postRoutes = require('./routes/posts')
 const app = express()
 
 // middleware
+// making an edit
 app.use(express.json())
 
 app.use((req, res, next) => {
