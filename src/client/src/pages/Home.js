@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { usePostsContext } from '../hooks/usePostsContext'
 
 // components
 import PostDetails from '../components/PostDetails'
 import PostForm from '../components/PostForm'
 
 const Home = () => {
-    const [posts, setPosts] = useState(null)
+    const {posts, dispatch} = usePostsContext()
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -13,17 +14,18 @@ const Home = () => {
             const json = await response.json()
 
             if (response.ok) {
-                setPosts(json)
+                dispatch({type: 'SET_POSTS', payload: json})
 
             }
         }
+
         fetchPosts()
-    }, [])
+    }, [dispatch])
     return ( 
         <div className="home">
             <div className="posts">
-                {posts && posts.map((post) => (
-                    <PostDetails key={post._id} post={post}/>
+                {posts && posts.map(post => (
+                    <PostDetails post={post} key={post._id}/>
                 ))}
             </div>
             <PostForm />
