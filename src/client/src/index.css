@@ -3,8 +3,8 @@
 
 /* layout */
 :root {
-  --primary: #1aac83;
-  --error: #e7195a;
+  --primary: #1135ff;
+  --error: #ef1515;
 }
 body {
   background: #f1f1f1;
@@ -14,37 +14,49 @@ body {
 header {
   background: #fff;
 }
-header .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+header .navbar-main {
+  height: 100%; 
+  width: 200px; 
+  position: fixed; 
+  z-index: 1000; 
+  background-color: #d7d7d7; 
+  padding: 30px; 
+  transition: width 1s ease;
+  font-size: 18px;
+}
+header .navbar-main:hover {
+  width: 300px;
+  transition: font-size 0.1s;
+  font-size: 20px;
 }
 header a {
-  color: #333;
+  color: #000000;
   text-decoration: none;
+  display: block;
+}
+header a:hover {
+  color: var(--primary);
+  text-decoration: none;
+  display: block;
 }
 .pages{
   max-width: 1400px;
   padding: 20px;
-  margin: 0 auto;
+  margin-left:300px;
 }
 
-/* homepage */
-.home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
+/* Home and MyProfile */
+.create {
+  margin: 20px 100px;
+  left: 400px;
   gap: 100px;
 }
 .post-details {
   background: #fff;
   border-radius: 4px;
-  margin: 20px auto;
+  margin: 20px 100px;
   padding: 20px;
-  position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 2px 2px 5px #383838;
 }
 .post-details h4 {
   margin: 0 0 10px 0;
@@ -52,19 +64,26 @@ header a {
   color: var(--primary);
 }
 .post-details p {
-  margin: 0;
+  margin: 10px 0px;
   font-size: 0.9em;
   color: #555;
 }
 .post-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: relative;
   cursor: pointer;
-  background: #f1f1f1;
   padding: 6px;
   border-radius: 50%;
-  color: #333;
+  color: var(--error);
+}
+.post-details span {
+  float: right;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: #4c4c4c;
+}
+.post-details span:hover {
+  color: #ae3939;
 }
 
 /* new workout form */

@@ -3,9 +3,9 @@ import { usePostsContext } from '../hooks/usePostsContext'
 
 // components
 import PostDetails from '../components/PostDetails'
-// import PostForm from '../components/PostForm'
+import PostForm from '../components/PostForm'
 
-const Home = () => {
+const MyProfile = () => {
     const {posts, dispatch} = usePostsContext()
 
     useEffect(() => {
@@ -23,14 +23,14 @@ const Home = () => {
     }, [dispatch])
     return ( 
         <div className="home">
+            <PostForm />
             <div className="posts">
                 {posts && posts.map(post => (
                     <PostDetails post={post} key={post._id}/>
                 ))}
             </div>
-            {/* <PostForm /> */}
         </div>
      );
 }
  
-export default Home;
+export default MyProfile;

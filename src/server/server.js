@@ -3,6 +3,7 @@ require('dotenv').config({ path: './src/server/.env' });
 const express = require('express')
 const mongoose = require('mongoose')
 const postRoutes = require('./routes/posts')
+// const userRoutes = require('./routes/user')
 
 // express app
 const app = express()

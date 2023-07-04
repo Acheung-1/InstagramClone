@@ -22,11 +22,11 @@ const PostDetails = ({ post }) => {
 
     return ( 
         <div className="post-details">
+            <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
             <h4>{post.image}</h4>
             <p>{post.caption}</p>
             <p><strong>Likes: </strong> {post.likes}</p>
             <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>
-            <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
         </div>
      );
 }

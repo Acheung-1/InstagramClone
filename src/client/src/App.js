@@ -2,7 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // pages & components
 import Home from './pages/Home'
+import MyProfile from './pages/MyProfile'
 import Navbar from './components/Navbar'
+
 
 function App() {
   return (
@@ -14,6 +16,10 @@ function App() {
             <Route 
               path ="/"
               element = {<Home />}
+              />
+            <Route 
+              path ="/MyProfile"
+              element = {<MyProfile />}
               />
           </Routes>
 
