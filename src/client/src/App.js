@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // pages & components
 import Home from './pages/Home'
 import MyProfile from './pages/MyProfile'
+import SinglePost from './pages/SinglePost'
 import Navbar from './components/Navbar'
 
 
@@ -21,8 +22,11 @@ function App() {
               path ="/MyProfile"
               element = {<MyProfile />}
               />
+            <Route 
+              path="post/:id" 
+              element = { <SinglePost/>}
+              />
           </Routes>
-
         </div>
       </BrowserRouter>
       

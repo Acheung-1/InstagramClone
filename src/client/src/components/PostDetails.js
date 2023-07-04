@@ -1,10 +1,14 @@
+// import { useEffect } from 'react'
 import { usePostsContext } from '../hooks/usePostsContext'
+import { Link } from 'react-router-dom'
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 
+
 const PostDetails = ({ post }) => {
+
     const { dispatch } = usePostsContext()
 
     const handleClick = async () => {
@@ -15,15 +19,15 @@ const PostDetails = ({ post }) => {
 
         if (response.ok) {
             dispatch({type: 'DELETE_POST', payload: json})
-
         }
-
     }
 
     return ( 
         <div className="post-details">
             <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
-            <h4>{post.image}</h4>
+            <Link to={`/post/${post._id}`}>
+                <h4>{post.image}</h4>
+            </Link>
             <p>{post.caption}</p>
             <p><strong>Likes: </strong> {post.likes}</p>
             <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>

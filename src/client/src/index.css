@@ -68,12 +68,8 @@ header a:hover {
   font-size: 0.9em;
   color: #555;
 }
-.post-details span {
-  position: relative;
-  cursor: pointer;
-  padding: 6px;
-  border-radius: 50%;
-  color: var(--error);
+.post-details a {
+  text-decoration: none;
 }
 .post-details span {
   float: right;
@@ -83,7 +79,7 @@ header a:hover {
   color: #4c4c4c;
 }
 .post-details span:hover {
-  color: #ae3939;
+  color: var(--error);;
 }
 
 /* new workout form */
