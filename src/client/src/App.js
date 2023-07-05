@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import MyProfile from './pages/MyProfile'
 import SinglePost from './pages/SinglePost'
+import SignUp from './pages/SignUp'
+import Login from './pages/Login'
 import Navbar from './components/Navbar'
 
 
@@ -26,6 +28,14 @@ function App() {
               path="post/:id" 
               element = { <SinglePost/>}
               />
+            <Route 
+              path="login" 
+              element = { <Login/>}
+            />
+            <Route 
+              path="signup" 
+              element = { <SignUp/>}
+            />
           </Routes>
         </div>
       </BrowserRouter>
