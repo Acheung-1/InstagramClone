@@ -19,13 +19,10 @@ const Navbar = () => {
                 <Link to="/">
                     <h1>Picture</h1>
                 </Link>
-                <Link to="/">
-                    <h1>Home</h1>
-                </Link>
                 <Link to="/MyProfile">
                     <h1>My Profile</h1>
                 </Link>
-                <Link to="/">
+                <Link to="/post/64a3999907b9f278c27d232">
                     <h1>My Likes</h1>
                 </Link>
                 <nav>

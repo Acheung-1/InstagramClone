@@ -11,7 +11,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 const PostDetails = ({ post }) => {
 
     const { dispatch } = usePostsContext()
-    const { user } = useAuthContext
+    const { user } = useAuthContext()
 
     const handleDelete = async () => {
         if (!user) {

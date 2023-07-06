@@ -20,8 +20,8 @@ const Home = () => {
 
             if (response.ok) {
                 dispatch({type: 'SET_POSTS', payload: json})
-
             }
+            
         }
         if (user) {
             fetchPosts()

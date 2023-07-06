@@ -8,6 +8,7 @@ import SinglePost from './pages/SinglePost'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 import Navbar from './components/Navbar'
+import NoMatch from './pages/NoMatch'
 
 
 function App() {
@@ -20,25 +21,31 @@ function App() {
         <div className="pages">
           <Routes>
             <Route 
-              path ="/"
+              exact path ="/"
               element = {user ? <Home /> : <Navigate to="/login" />}
               />
             <Route 
-              path ="/MyProfile"
-              element = {user ? <MyProfile /> : <Navigate to="/login" />}
-              />
-            <Route 
-              path="post/:id" 
-              element = {<SinglePost/>}
-              />
-            <Route 
-              path="login" 
+              path="/login" 
               element = {!user ? <Login/> : <Navigate to="/" />}
             />
             <Route 
-              path="signup" 
+              path="/signup" 
               element = {!user ? <SignUp/> : <Navigate to="/" />}
             />
+            <Route 
+              path ="/MyProfile"
+              // element = { <MyProfile/> }
+              element = {user ? <MyProfile /> : <Navigate to="/login" />}
+              />
+            <Route 
+              path="/post/:id" 
+              element = {user ? <SinglePost/> : <Navigate to="/login" />}
+              />
+            {/* <Route
+              path="*"
+              element = {user ? <NoMatch/> : <Navigate to="/login" />}
+            /> */}
+            <Route path="*" element={<NoMatch />} />
           </Routes>
         </div>
       </BrowserRouter>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 // import { usePostsContext } from '../hooks/usePostsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+import NoMatch from './NoMatch'
 
 
 // components
@@ -10,6 +11,7 @@ import PostDetails from '../components/PostDetails'
 const SinglePost = () => {
     const { id } = useParams();
     const [posts, setPosts] = useState(null)
+    const [exists, setExists] = useState(true)
     const { user } = useAuthContext()
 
     useEffect(() => {
@@ -23,6 +25,10 @@ const SinglePost = () => {
 
       if (response.ok) {
         setPosts(json)
+        setExists(true)
+      }
+      if (!response.ok) {
+        setExists(false)
       }
     }
     if (user) {
@@ -33,12 +39,18 @@ const SinglePost = () => {
     return ( 
         <div className="home">
             <div className="posts">
-                {posts && 
-                    <PostDetails post={posts} key={posts._id}/>
+                {exists && posts && 
+                  <PostDetails post={posts} key={posts._id}/>
+                }
+                {!exists &&
+                  <NoMatch />
                 }
             </div>
         </div>
      );
+
+
 }
+
  
 export default SinglePost;
