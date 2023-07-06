@@ -25,27 +25,26 @@ function App() {
               element = {user ? <Home /> : <Navigate to="/login" />}
               />
             <Route 
-              path="/login" 
+              exact path="/login" 
               element = {!user ? <Login/> : <Navigate to="/" />}
             />
             <Route 
-              path="/signup" 
+              exact path="/signup" 
               element = {!user ? <SignUp/> : <Navigate to="/" />}
             />
             <Route 
-              path ="/MyProfile"
-              // element = { <MyProfile/> }
+              exact path ="/MyProfile"
               element = {user ? <MyProfile /> : <Navigate to="/login" />}
-              />
+            />
             <Route 
-              path="/post/:id" 
+              exact path="/post/:id" 
               element = {user ? <SinglePost/> : <Navigate to="/login" />}
-              />
+            />
             {/* <Route
               path="*"
-              element = {user ? <NoMatch/> : <Navigate to="/login" />}
+              element = {user ? <NoMatch/> : <Navigate to="/" />}
             /> */}
-            <Route path="*" element={<NoMatch />} />
+            <Route path="*" element={ <NoMatch/> } />
           </Routes>
         </div>
       </BrowserRouter>

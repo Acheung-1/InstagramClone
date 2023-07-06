@@ -1,6 +1,7 @@
 const express = require('express')
 const {
     getPosts,
+    getMyPosts,
     getPost,
     createPost,
     deletePost,
@@ -16,6 +17,9 @@ router.use(requireAuth)
 
 // GET all posts
 router.get('/', getPosts)
+
+// GET my posts
+router.get('/MyProfile', getMyPosts)
 
 // GET a single post
 router.get('/:id', getPost)

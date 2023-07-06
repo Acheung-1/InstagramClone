@@ -12,7 +12,7 @@ const MyProfile = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const response = await fetch('api/posts', {
+            const response = await fetch('api/posts/MyProfile', {
                 headers: {
                     'Authorization' : `Bearer ${user.token}`
                 }

@@ -8,6 +8,14 @@ const getPosts = async(req, res) => {
     res.status(200).json(posts)
 }
 
+// get all posts
+const getMyPosts = async(req, res) => {
+    const userID = req.user._id
+    const posts = await Post.find({ userID }).sort({createdAt: -1})
+
+    res.status(200).json(posts)
+}
+
 // get a single post
 const getPost = async (req, res) => {
     const { id } = req.params
@@ -45,7 +53,8 @@ const createPost = async(req, res) => {
 
     // add to db
     try {
-        const post = await Post.create({ image, caption, likes })
+        const userID = req.user._id
+        const post = await Post.create({ image, caption, likes, userID })
         res.status(200).json(post)
     } catch (error) {
         res.status(400).json({error: error.message})
@@ -90,6 +99,7 @@ const updatePost = async (req, res) => {
 
 module.exports = {
     getPosts,
+    getMyPosts,
     getPost,
     createPost, 
     deletePost, 
