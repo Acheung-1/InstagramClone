@@ -35,7 +35,7 @@ const getPost = async (req, res) => {
 
 // create a new post
 const createPost = async(req, res) => {
-    const { image, caption, likes } = req.body
+    const { title, image, caption, likes,  } = req.body
 
     let emptyFields = []
     
@@ -54,7 +54,8 @@ const createPost = async(req, res) => {
     // add to db
     try {
         const userID = req.user._id
-        const post = await Post.create({ image, caption, likes, userID })
+        const username = req.user.username
+        const post = await Post.create({ title, image, caption, likes, userID, username })
         res.status(200).json(post)
     } catch (error) {
         res.status(400).json({error: error.message})

@@ -46,8 +46,10 @@ const PostDetails = ({ post }) => {
         <div className="post-details">
             <span className="material-symbols-outlined" onClick={handleDelete}>delete</span>
             <Link to={`/post/${post._id}`}>
-                <h4>{post.image}</h4>
+                <h4>{post.title}</h4>
+                <h3>{post.image}</h3>
             </Link>
+            <p>posted by {post.username}</p>
             <p>{post.caption}</p>
             {/* <span className="material-symbols-outlined" onClick={handleFavorite}>favorite</span> */}
             <p><strong>Likes: </strong> {post.likes}</p>

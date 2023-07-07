@@ -6,6 +6,7 @@ const PostForm = () => {
     const { dispatch } = usePostsContext()
     const {user} = useAuthContext()
 
+    const [title, setTitle] = useState('')
     const [image, setImage] = useState('')
     const [caption, setCaption] = useState('')
     const likes = 0
@@ -20,7 +21,7 @@ const PostForm = () => {
             return
         }
 
-        const post = {image, caption, likes}
+        const post = {title, image, caption, likes}
 
         const response = await fetch('/api/posts', {
             method: 'POST',
@@ -50,6 +51,15 @@ const PostForm = () => {
     return ( 
         <form action="" className="create" onSubmit={handleSubmit}>
             <h3>Add a new post</h3>
+
+            <label> Title:</label>
+            <input 
+                type="text" 
+                onChange={(e) => setTitle(e.target.value)}
+                value = {title}
+                className={emptyFields.includes('title') ? 'error' : ''}
+            />
+
             <label> Post Image:</label>
             <input 
                 type="text" 
