@@ -48,7 +48,7 @@ const userSchema = new Schema({
 userSchema.statics.signup = async function(firstName, lastName, username, email, password) {
 
     // validation
-    if (!email || !password) {
+    if (!firstName || !lastName || !username || !email || !password) {
         throw Error('All fields must be filled')
     }
     if (!validator.isEmail(email)) {
@@ -70,11 +70,13 @@ userSchema.statics.signup = async function(firstName, lastName, username, email,
 
     const user = await this.create({ firstName, lastName, username, email, password: hash })
 
+    console.log(user)
+
     return user
 }
 
 // static login method
-userSchema.statics.login = async function(email, password) {
+userSchema.statics.login = async function( email, password) {
     if (!email || !password) {
         throw Error('All fields must be filled')
     }
@@ -90,6 +92,8 @@ userSchema.statics.login = async function(email, password) {
     if (!match) {
         throw Error('Invalid login credentials')
     }
+
+    console.log(user)
 
     return user
 }

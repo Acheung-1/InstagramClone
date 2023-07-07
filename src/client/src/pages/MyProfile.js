@@ -12,6 +12,7 @@ const MyProfile = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
+            dispatch({type: 'SET_POSTS', payload: null})
             const response = await fetch('api/posts/MyProfile', {
                 headers: {
                     'Authorization' : `Bearer ${user.token}`
