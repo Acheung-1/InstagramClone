@@ -55,8 +55,8 @@ const createPost = async(req, res) => {
     try {
         const userID = req.user._id
         const username = req.user.username
-        console.log(req)
-        const post = await Post.create({ title, image, caption, likes, userID, username })
+        const email = req.user.email
+        const post = await Post.create({ title, image, caption, likes, userID, username, email })
         res.status(200).json(post)
     } catch (error) {
         res.status(400).json({error: error.message})

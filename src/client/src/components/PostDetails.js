@@ -44,10 +44,11 @@ const PostDetails = ({ post }) => {
 
     return ( 
         <div className="post-details">
-            <span className="material-symbols-outlined" onClick={handleDelete}>delete</span>
+            {post.email === user.email && <span className="material-symbols-outlined" onClick={handleDelete}>delete</span>}
+            {/* <span className="material-symbols-outlined" onClick={handleDelete}>delete</span> */}
             <Link to={`/post/${post._id}`}>
                 <h4>{post.title}</h4>
-                <h3>{post.image}</h3>
+                <img src={post.image} alt={post.caption}></img>
             </Link>
             <p>posted by {post.username}</p>
             <p>{post.caption}</p>

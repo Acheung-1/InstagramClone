@@ -1,17 +1,25 @@
 import { useState } from "react"
 import { usePostsContext } from '../hooks/usePostsContext'
-import { useAuthContext } from '../hooks/useAuthContext' 
+import { useAuthContext } from '../hooks/useAuthContext'
+import imageIcon from '../assets/imageIcon.png'
 
 const PostForm = () => {
     const { dispatch } = usePostsContext()
-    const {user} = useAuthContext()
+    const { user } = useAuthContext()
 
     const [title, setTitle] = useState('')
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState("")
     const [caption, setCaption] = useState('')
     const likes = 0
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
+
+    const handleFileUpload = async (e) => {
+        const file = e.target.files[0]
+        const base64 = await convertToBase64(file)
+        setImage(base64)
+        console.log(base64)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -20,7 +28,6 @@ const PostForm = () => {
             setError('You must be logged in')
             return
         }
-
         const post = {title, image, caption, likes}
 
         const response = await fetch('/api/posts', {
@@ -60,12 +67,22 @@ const PostForm = () => {
                 className={emptyFields.includes('title') ? 'error' : ''}
             />
 
-            <label> Post Image:</label>
+            <label> 
+                <img src={image|| imageIcon} alt="" />
+            </label>
             <input 
-                type="text" 
-                onChange={(e) => setImage(e.target.value)}
-                value = {image}
-                className={emptyFields.includes('image') ? 'error' : ''}
+                type="file" 
+                label="image"
+                name="image"
+                id="file-upload"
+                accept=",jpeg, .png, .jpeg"
+                onChange={(e) => handleFileUpload(e)}
+
+
+                // type="text"
+                // onChange={(e) => setImage(e.target.value)}
+                // value = {image}
+                // className={emptyFields.includes('image') ? 'error' : ''}
             />
 
             <label> Post caption:</label>
@@ -83,3 +100,16 @@ const PostForm = () => {
 }
  
 export default PostForm;
+
+function convertToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader()
+      fileReader.readAsDataURL(file)
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      }
+      fileReader.onerror = (error) => {
+        reject(error)
+      }
+    })
+  }
