@@ -43,7 +43,7 @@ const PostForm = () => {
             setCaption('')
             setError(null)
             setEmptyFields([])
-            console.log('new post added', json)
+            // console.log('new post added', json)
             dispatch({type: 'CREATE_POST', payload: json})
         }
     }

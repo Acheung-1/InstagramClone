@@ -26,11 +26,11 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
-    // about: {
-    //     type: String,
-    //     defaultValue: ""
-    // },
+    }, 
+    about: {
+        type: String,
+        defaultValue: ""
+    },
     // confirmed: {
     //     type: Boolean,
     //     required: true,
@@ -39,9 +39,10 @@ const userSchema = new Schema({
     // verificationCode: {
     //     type: String
     // },
-    // profilePicture:{
-    //     type: String
-    // }
+    profilePicture:{
+        type: String,
+        defaultValue:""
+    }
 })
 
  // static signup method
