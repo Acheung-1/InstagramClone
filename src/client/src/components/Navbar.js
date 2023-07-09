@@ -31,7 +31,7 @@ const Navbar = () => {
                         <img className="profile-picture" src={avatar} alt="" />
                     </Link>
                     <Link to={user ? `/Profile/${user.username}` : "/login"}>
-                        <h1>{user.username}</h1>
+                        <h1>My Profile</h1>
                     </Link>
                     <Link to="/post/64a3999907b9f278c27d232">
                         <h1>Liked</h1>
