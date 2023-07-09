@@ -19,7 +19,7 @@ router.use(requireAuth)
 router.get('/', getPosts)
 
 // GET user posts
-router.get('/Profile/:id', getUserPosts)
+router.get('/Profile/:username', getUserPosts)
 
 // GET a single post
 router.get('/:id', getPost)

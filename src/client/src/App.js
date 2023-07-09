@@ -33,12 +33,8 @@ function App() {
               path="/signup" 
               element = {!user ? <SignUp/> : <Navigate to="/" />}
             />
-            {/* <Route 
-              path ="/MyProfile"
-              element = {user ? <MyProfile /> : <Navigate to="/login" />}
-            /> */}
             <Route 
-              path ="/Profile/:id"
+              path ="/Profile/:username"
               element = {user ? <Profile /> : <Navigate to="/login" />}
             />
             <Route 

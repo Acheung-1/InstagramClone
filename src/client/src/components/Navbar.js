@@ -19,7 +19,7 @@ const Navbar = () => {
                 <Link to="/">
                     <h1>Picture</h1>
                 </Link>
-                <Link to={user ? `/Profile/${user._id}` : "/login"}>
+                <Link to={user ? `/Profile/${user.username}` : "/login"}>
                     <h1>My Profile</h1>
                 </Link>
                 <Link to="/post/64a3999907b9f278c27d232">
@@ -30,7 +30,7 @@ const Navbar = () => {
                         <div>
                             <span>Hello, </span>
                             <br />
-                            <span>{user.email}</span>
+                            <span>{user.username}</span>
                             <br />
                             <button onClick={handleClick}>Log Out</button>
                         </div>

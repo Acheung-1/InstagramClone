@@ -11,13 +11,9 @@ const getPosts = async(req, res) => {
 
 // get user posts
 const getUserPosts = async(req, res) => {
-    const { id } = req.params
+    const { username } = req.params
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: "No such user"})
-    }
-
-    const posts = await Post.find({ userID: id }).sort({createdAt: -1})
+    const posts = await Post.find({ username }).sort({createdAt: -1})
     
     if (!posts) {
         return res.status(400).json({error: 'User has no posts'})

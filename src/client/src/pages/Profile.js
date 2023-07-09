@@ -7,15 +7,15 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import PostDetails from '../components/PostDetails'
 import PostForm from '../components/PostForm'
 
-const MyProfile = () => {
-  const { id } = useParams();
+const Profile = () => {
+  const { username } = useParams();
   const {posts, dispatch} = usePostsContext()
   const {user} = useAuthContext()
 
   useEffect(() => {
     const fetchPosts = async () => {
       dispatch({type: 'SET_POSTS', payload: null})
-      const response = await fetch('/api/posts/Profile/'+id, {
+      const response = await fetch('/api/posts/Profile/'+username, {
         headers: {
           'Authorization' : `Bearer ${user.token}`
         }
@@ -32,11 +32,12 @@ const MyProfile = () => {
       fetchPosts()
     }
 
-  }, [dispatch, user, id])
+  }, [dispatch, user, username])
 
   return ( 
     <div className="home">
-      { user && posts && user.email === posts[0].email && <PostForm />}
+      { user && posts && user.username === posts[0].username && <PostForm />}
+      {/* <PostForm /> */}
         <div className="posts">
           {posts && posts.map(post => (
             <PostDetails post={post} key={post._id}/>
@@ -46,4 +47,4 @@ const MyProfile = () => {
   );
 }
  
-export default MyProfile;
+export default Profile;
