@@ -18,7 +18,6 @@ const PostForm = () => {
         const file = e.target.files[0]
         const base64 = await convertToBase64(file)
         setImage(base64)
-        console.log(base64)
     }
 
     const handleSubmit = async (e) => {
@@ -46,6 +45,7 @@ const PostForm = () => {
 
         }
         if (response.ok) {
+            setTitle('')
             setImage('')
             setCaption('')
             setError(null)
@@ -67,22 +67,16 @@ const PostForm = () => {
                 className={emptyFields.includes('title') ? 'error' : ''}
             />
 
-            <label> 
-                <img src={image|| imageIcon} alt="" />
+            <label htmlFor="file-upload" className="custom-file-upload"> 
+                <img className="uploaded-image" src={image|| imageIcon} alt="" />
             </label>
-            <input 
+            <input className = "upload-image" 
                 type="file" 
                 label="image"
                 name="image"
                 id="file-upload"
                 accept=",jpeg, .png, .jpeg"
                 onChange={(e) => handleFileUpload(e)}
-
-
-                // type="text"
-                // onChange={(e) => setImage(e.target.value)}
-                // value = {image}
-                // className={emptyFields.includes('image') ? 'error' : ''}
             />
 
             <label> Post caption:</label>

@@ -23,27 +23,23 @@ function App() {
             <Route 
               exact path ="/"
               element = {user ? <Home /> : <Navigate to="/login" />}
-              />
+            />
             <Route 
-              exact path="/login" 
+              path="/login" 
               element = {!user ? <Login/> : <Navigate to="/" />}
             />
             <Route 
-              exact path="/signup" 
+              path="/signup" 
               element = {!user ? <SignUp/> : <Navigate to="/" />}
             />
             <Route 
-              exact path ="/MyProfile"
+              path ="/MyProfile"
               element = {user ? <MyProfile /> : <Navigate to="/login" />}
             />
             <Route 
-              exact path="/post/:id" 
+              path="/post/:id" 
               element = {user ? <SinglePost/> : <Navigate to="/login" />}
             />
-            {/* <Route
-              path="*"
-              element = {user ? <NoMatch/> : <Navigate to="/" />}
-            /> */}
             <Route path="*" element={ <NoMatch/> } />
           </Routes>
         </div>

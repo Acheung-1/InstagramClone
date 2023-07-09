@@ -61,12 +61,19 @@ header a:hover {
 .post-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: #000000;
+}
+div.username-caption {
+  display: flex; 
+  /* justify-content: space-between; */
 }
 .post-details p {
   margin: 10px 0px;
   font-size: 0.9em;
   color: #555;
+}
+p.username {
+  color: var(--primary);
 }
 .post-details a {
   text-decoration: none;
@@ -79,12 +86,23 @@ header a:hover {
   color: #4c4c4c;
 }
 .post-details span:hover {
-  color: var(--error);;
+  color: var(--error);
+}
+.post-details img {
+  text-align: center;
 }
 
 /* new workout form */
+h3{
+  text-align: center;
+}
 label, input {
   display: block;
+  text-align: center;
+}
+.custom-file-upload {
+  cursor: pointer;
+  text-align: center;
 }
 input {
   padding: 10px;
@@ -94,6 +112,9 @@ input {
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
+}
+input[type="file"]{
+  display: none
 }
 form button {
   background: var(--primary);
@@ -114,4 +135,16 @@ div.error {
 }
 input.error {
   border: 1px solid var(--error);
+}
+.uploaded-image {
+  text-align: center;
+}
+img {
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+  text-align: center;
+}
+div.image{
+  text-align: center;
 }

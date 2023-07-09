@@ -48,10 +48,14 @@ const PostDetails = ({ post }) => {
             {/* <span className="material-symbols-outlined" onClick={handleDelete}>delete</span> */}
             <Link to={`/post/${post._id}`}>
                 <h4>{post.title}</h4>
-                <img src={post.image} alt={post.caption}></img>
+                <div className="image">
+                    <img src={post.image} alt={post.caption}></img>
+                </div>
             </Link>
-            <p>posted by {post.username}</p>
-            <p>{post.caption}</p>
+            <div className="username-caption">
+                <p className="username">{post.username }&ensp;</p>
+                <p className="caption">{post.caption}</p>
+            </div>
             {/* <span className="material-symbols-outlined" onClick={handleFavorite}>favorite</span> */}
             <p><strong>Likes: </strong> {post.likes}</p>
             <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>
