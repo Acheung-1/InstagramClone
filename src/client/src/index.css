@@ -58,8 +58,8 @@ header a:hover {
 /* Home and MyProfile */
 .create {
   margin: 20px 100px;
-  left: 400px;
-  gap: 100px;
+  /* left: 400px; */
+  /* gap: 100px;; */
 }
 .post-details {
   background: #fff;

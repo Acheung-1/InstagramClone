@@ -7,7 +7,7 @@ const NoMatch = () => {
             <h1>Sorry, this page cannot be found</h1>
             <Link to="/">Click to go back to homepage</Link>
         </div>
-     );
+     )
 }
  
 export default NoMatch;

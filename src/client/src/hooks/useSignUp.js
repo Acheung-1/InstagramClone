@@ -15,6 +15,7 @@ export const useSignUp = () => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({firstName, lastName, username, email, password})
         })
+        
         const json = await response.json()
 
         if (!response.ok) {
@@ -31,6 +32,6 @@ export const useSignUp = () => {
             setIsLoading(false)
         }
     }
+
     return { signUp, isLoading, error }
-    
 }

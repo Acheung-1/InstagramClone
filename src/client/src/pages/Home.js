@@ -16,6 +16,7 @@ const Home = () => {
                     'Authorization' : `Bearer ${user.token}`
                 }
             })
+
             const json = await response.json()
 
             if (response.ok) {
@@ -27,6 +28,7 @@ const Home = () => {
             fetchPosts()
         }
     }, [dispatch, user])
+    
     return ( 
         <div className="home">
             <div className="posts">
@@ -35,7 +37,7 @@ const Home = () => {
                 ))}
             </div>
         </div>
-     );
+    )
 }
  
 export default Home;

@@ -1,4 +1,3 @@
-// import { useEffect } from 'react'
 import { usePostsContext } from '../hooks/usePostsContext'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext'
@@ -7,9 +6,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 
-
 const PostDetails = ({ post }) => {
-
     const { dispatch } = usePostsContext()
     const { user } = useAuthContext()
 
@@ -17,12 +14,14 @@ const PostDetails = ({ post }) => {
         if (!user) {
             return
         }
+        
         const response = await fetch('/api/posts/' + post._id, {
             method: 'DELETE',
             headers: {
                 'Authorization' : `Bearer ${user.token}`
             }
         })
+
         const json = await response.json()
 
         if (response.ok) {

@@ -3,6 +3,7 @@ import { usePostsContext } from '../hooks/usePostsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import imageIcon from '../assets/imageIcon.png'
 
+
 const PostForm = () => {
     const { dispatch } = usePostsContext()
     const { user } = useAuthContext()
@@ -27,6 +28,7 @@ const PostForm = () => {
             setError('You must be logged in')
             return
         }
+
         const post = {title, image, caption, likes}
 
         const response = await fetch('/api/posts', {
@@ -37,6 +39,7 @@ const PostForm = () => {
                 'Authorization' : `Bearer ${user.token}`
             }
         })
+
         const json = await response.json()
 
         if (!response.ok) {
@@ -44,6 +47,7 @@ const PostForm = () => {
             setEmptyFields(json.emptyFields)
 
         }
+
         if (response.ok) {
             setTitle('')
             setImage('')
@@ -97,13 +101,15 @@ export default PostForm;
 
 function convertToBase64(file) {
     return new Promise((resolve, reject) => {
-      const fileReader = new FileReader()
-      fileReader.readAsDataURL(file)
-      fileReader.onload = () => {
-        resolve(fileReader.result)
-      }
-      fileReader.onerror = (error) => {
-        reject(error)
-      }
+        const fileReader = new FileReader()
+        fileReader.readAsDataURL(file)
+        
+        fileReader.onload = () => {
+            resolve(fileReader.result)
+        }
+
+        fileReader.onerror = (error) => {
+            reject(error)
+        }
     })
-  }
+}

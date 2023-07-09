@@ -3,6 +3,7 @@ import { useLogOut } from '../hooks/useLogOut'
 import { useAuthContext } from '../hooks/useAuthContext'
 import avatar from '../assets/avatar.png' 
 
+
 const Navbar = () => {
     const { logout } = useLogOut()
     const { user } = useAuthContext()
