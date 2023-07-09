@@ -29,7 +29,7 @@ const userSchema = new Schema({
     }, 
     about: {
         type: String,
-        defaultValue: ""
+        defaultValue: "hello"
     },
     // confirmed: {
     //     type: Boolean,
@@ -68,10 +68,12 @@ userSchema.statics.signup = async function(firstName, lastName, username, email,
 
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password, salt)
+    const bio = ""
+    const avatar = ""
 
-    const user = await this.create({ firstName, lastName, username, email, password: hash })
+    const user = await this.create({ firstName, lastName, username, email, password: hash, about: bio, profilePicture: avatar })
 
-    console.log(user)
+    // console.log(user)
 
     return user
 }
@@ -94,7 +96,7 @@ userSchema.statics.login = async function( username, password) {
         throw Error('Invalid login credentials')
     }
 
-    console.log(user)
+    // console.log(user)
 
     return user
 }

@@ -41,6 +41,7 @@ const Profile = () => {
         <h1>{username}</h1>
         <img className="profile-picture" src={avatar} alt="" />
       </div>
+      <hr />
       {/* <label htmlFor="file-upload" className="custom-file-upload"> 
                 <img className="uploaded-image" src={image|| imageIcon} alt="" />
             </label>
@@ -52,7 +53,9 @@ const Profile = () => {
                 accept=",jpeg, .png, .jpeg"
                 onChange={(e) => handleFileUpload(e)}
             /> */}
-      { user && posts && user.username === posts[0].username && <PostForm />}
+      {/* { user && posts && user.username === posts[0].username && <PostForm />} */}
+      { user && user.username === username && <PostForm />}
+      {/* { user && <PostForm />} */}
       {/* <PostForm /> */}
         <div className="posts">
           {posts && posts.map(post => (

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useLogOut } from '../hooks/useLogOut'
 import { useAuthContext } from '../hooks/useAuthContext'
 import avatar from '../assets/avatar.png' 
+import icon from '../assets/Moments.png' 
 
 
 const Navbar = () => {
@@ -15,8 +16,12 @@ const Navbar = () => {
     return ( 
         <header>
             <div className="navbar-main">
+                <div className="banner">
+                    <img className="icon" src={icon} alt="" />
+                    <h3>Moments</h3>
+                </div>
                 <Link to="/">
-                    <h1>Instagram</h1>
+                    <h1>Home</h1>
                 </Link>
                 <Link to={user ? `/Profile/${user.username}` : "/login"}>
                     <img className="profile-picture" src={avatar} alt="" />

@@ -14,8 +14,14 @@ const loginUser = async (req, res) => {
 
         // create token
         const token = createToken(user._id)
+        // console.log(user)
 
-        res.status(200).json({username, token})
+        // can remove later
+        const userAvatar = user.profilePicture
+        const about = user.about
+
+        // res.status(200).json({username, token})
+        res.status(200).json({username, token, profilePicture: userAvatar, about})
     } catch(error) {
         res.status(400).json({error: error.message})
     }
@@ -31,7 +37,11 @@ const signUpUser = async (req, res) => {
         // create token
         const token = createToken(user._id)
 
-        res.status(200).json({firstName, lastName, username, email, token })
+        const userAvatar = user.profilePicture
+        const about = user.about
+
+        // res.status(200).json({firstName, lastName, username, email, token })
+        res.status(200).json({firstName, lastName, username, email, token, profilePicture: userAvatar, about})
     } catch(error) {
         res.status(400).json({error: error.message})
     }
