@@ -40,8 +40,8 @@ const Profile = () => {
       <div className="profile">
         <h1>{username}</h1>
         <img className="profile-picture" src={avatar} alt="" />
+        <hr />
       </div>
-      <hr />
       {/* <label htmlFor="file-upload" className="custom-file-upload"> 
                 <img className="uploaded-image" src={image|| imageIcon} alt="" />
             </label>

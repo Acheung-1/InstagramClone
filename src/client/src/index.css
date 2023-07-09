@@ -10,7 +10,6 @@ body {
   background: #fbfbfb;
   margin: 0;
   font-family: "Poppins";
-  /* border: 5px solid #555; */
   text-align: center;
 }
 .pages{
@@ -18,18 +17,15 @@ body {
   padding: 20px;
   margin-left:350px;
   text-align: center;
-  border: 5px solid #555;
-  min-width: 20em;
-
+  min-width: 10em;
 }
 .content{
-  /* text-align: center; */
   display: block;
-  border: 5px solid #555;
   max-width: 70%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  min-width: 20em;
 }
 
 /* Navbar */
@@ -47,10 +43,13 @@ header .navbar-main {
   font-size: 18px;
   text-align: left;
 }
-header .navbar-main:hover {
-  width: 300px;
-  transition: font-size 0.3s ease;
-  font-size: 20px;
+
+@media (min-width:950px) {
+  header .navbar-main:hover {
+    width: 300px;
+    transition: font-size 0.3s ease;
+    font-size: 20px;
+  }
 }
 header a {
   color: #000000;
@@ -63,27 +62,24 @@ header a:hover {
   display: block;
 }
 .banner {
-  display: flex
+  display: flex;
+  align-items: center;
 }
 .icon{
-  width: 20%;
-  height: 20%;
+  width: 30px;
+  height: 30px;
 }
 
-/* Home and MyProfile */
-/* .create { */
-  /* margin: 20px 100px; */
-  /* left: 400px; */
-  /* gap: 100px;; */
-/* } */
+/* Home and profiles */
 .post-details {
   background: #fff;
   border-radius: 4px;
-  margin: 20px 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 20px;
   box-shadow: 2px 2px 5px #383838;
   text-align: left;
-  border: 5px solid #555;
+  min-width: 20em;
 
 }
 .post-details h4 {
@@ -93,7 +89,6 @@ header a:hover {
 }
 div.username-caption {
   display: flex; 
-  /* justify-content: space-between; */
 }
 .post-details p {
   margin: 10px 0px;
@@ -121,9 +116,13 @@ p.username {
 }
 div.profile {
   text-align: center;
+  min-width: 22.5em;
 }
 
 /* new workout form */
+form.create {
+  min-width: 22.5em;
+}
 .create h3{
   text-align: center;
 }
@@ -144,6 +143,7 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
   text-align: left;
+  min-width: 20em;
 }
 input[type="file"]{
   display: none
@@ -188,21 +188,130 @@ img.profile-picture{
   border: 5px solid #555;
 }
 
-
-/* authentification */
-/* div.authentification {
-  text-align: center;
-  width: 100%; */
-  /* border: 5px solid #555; */
-
-  /* margin-left: 200px; */
-  /* border-style: solid;
-  border-color: black;
-  border: 2px; */
-/* } */
-
-.signup {
-  text-align: center;
-  font-size: 10px;
-  border: 5px solid #555;
+@media (max-width: 950px) {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e0cfcf; 
+    z-index: 1000; 
+    font-size: 15px
+  }
+  
+  header .navbar-main {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: 60px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  /* header .navbar-main {
+    height: 20px; 
+    width: 100%; 
+  } */
+  header .navbar-main:hover {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .banner {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+  
+  .banner-right {
+    display: flex;
+    margin-left: auto
+  }
+  
+  .icon {
+    width: 30px; /* Set your desired icon size */
+    height: 30px;
+  }
+  
+  header a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+  }
+  header a:hover {
+    color: var(--primary);
+    text-decoration: none;
+    display: block;
+  }
+  
+  h3 {
+    /* font-size: 15px; */
+    margin-left: 10px;
+  }
+  
+  h1 {
+    font-size: 20px;
+    margin: 0 10px;
+  }
+  
+  .profile-picture {
+    display: none;
+  }
+  
+  nav {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+  
+  nav div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  span {
+    font-size: 12px; /* Set your desired font size */
+  }
+  
+  button {
+    padding: 5px 10px;
+    background-color: #000; /* Set your desired button background color */
+    color: #fff; /* Set your desired button text color */
+    border: none;
+    cursor: pointer;
+  }
+  .pages{
+    margin-left:0px; /* margin on left is gone */
+    margin-top: 60px; /* needs to match heigh of navbar */
+  }
 }
+
+
+/* Tabs */
+.tabs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #d0b16a;
+	padding: 50px 10px 10px;
+}
+
+.tabs div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap
+}
+
+.tablinks {
+	padding: 10px 20px;
+	margin: 10px;
+	font-size: 16px;
+	background-color: #f2f2f2;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
