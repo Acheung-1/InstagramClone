@@ -20,29 +20,31 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <div className="pages">
-          <Routes>
-            <Route 
-              exact path ="/"
-              element = {user ? <Home /> : <Navigate to="/login" />}
-            />
-            <Route 
-              path="/login" 
-              element = {!user ? <Login/> : <Navigate to="/" />}
-            />
-            <Route 
-              path="/signup" 
-              element = {!user ? <SignUp/> : <Navigate to="/" />}
-            />
-            <Route 
-              path ="/Profile/:username"
-              element = {user ? <Profile /> : <Navigate to="/login" />}
-            />
-            <Route 
-              path="/post/:id" 
-              element = {user ? <SinglePost/> : <Navigate to="/login" />}
-            />
-            <Route path="*" element={ <NoMatch/> } />
-          </Routes>
+          <div className="content">
+            <Routes>
+              <Route 
+                exact path ="/"
+                element = {user ? <Home /> : <Navigate to="/login" />}
+              />
+              <Route 
+                path="/login" 
+                element = {!user ? <Login/> : <Navigate to="/" />}
+              />
+              <Route 
+                path="/signup" 
+                element = {!user ? <SignUp/> : <Navigate to="/" />}
+              />
+              <Route 
+                path ="/Profile/:username"
+                element = {user ? <Profile /> : <Navigate to="/login" />}
+              />
+              <Route 
+                path="/post/:id" 
+                element = {user ? <SinglePost/> : <Navigate to="/login" />}
+              />
+              <Route path="*" element={ <NoMatch/> } />
+            </Routes>
+          </div>
         </div>
       </BrowserRouter>
       

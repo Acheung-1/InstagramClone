@@ -7,22 +7,37 @@
   --error: #ef1515;
 }
 body {
-  background: #f1f1f1;
+  background: #fbfbfb;
   margin: 0;
   font-family: "Poppins";
+  text-align: center;
 }
+.pages{
+  max-width: 1400px;
+  padding: 20px;
+  margin-left:350px;
+  text-align: center;
+}
+.content{
+  text-align: center;
+  display: block;
+  border: #000000;
+}
+
+/* Navbar */
 header {
   background: #fff;
 }
 header .navbar-main {
   height: 100%; 
-  width: 200px; 
+  width: 250px; 
   position: fixed; 
   z-index: 1000; 
-  background-color: #d7d7d7; 
+  background-color: #e0cfcf; 
   padding: 30px; 
   transition: width 1s ease;
   font-size: 18px;
+  text-align: left;
 }
 header .navbar-main:hover {
   width: 300px;
@@ -39,11 +54,6 @@ header a:hover {
   text-decoration: none;
   display: block;
 }
-.pages{
-  max-width: 1400px;
-  padding: 20px;
-  margin-left:300px;
-}
 
 /* Home and MyProfile */
 .create {
@@ -57,6 +67,7 @@ header a:hover {
   margin: 20px 100px;
   padding: 20px;
   box-shadow: 2px 2px 5px #383838;
+  text-align: left;
 }
 .post-details h4 {
   margin: 0 0 10px 0;
@@ -91,6 +102,9 @@ p.username {
 .post-details img {
   text-align: center;
 }
+div.profile {
+  text-align: center;
+}
 
 /* new workout form */
 h3{
@@ -112,6 +126,7 @@ input {
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
+  text-align: left;
 }
 input[type="file"]{
   display: none
@@ -147,4 +162,29 @@ img {
 }
 div.image{
   text-align: center;
+}
+
+
+img.profile-picture{
+  width: 200px;
+  border-radius: 50%;
+  border: 3px  #000000
+}
+
+/* authentification */
+div.authentification {
+  text-align: center;
+  width: 500px;
+
+  /* margin-left: 200px; */
+  border-style: solid;
+  border-color: black;
+  border: 2px;
+}
+
+.signup {
+  text-align: center;
+  font-size: 10px;
+  border-color: black;
+  border: 2px
 }

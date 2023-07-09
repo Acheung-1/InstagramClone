@@ -16,44 +16,46 @@ const SignUp = () => {
     }
 
     return ( 
-        <form className="signup" onSubmit={handleSubmit}>
-            <h3>Sign up</h3>
+        <div className="authentification">
+            <form className="signup" onSubmit={handleSubmit}>
+                <h3>Sign up</h3>
 
-            <label>First Name</label>
-            <input 
-                type="firstName" 
-                onChange={(e) => setFirstName(e.target.value)}
-                value={firstName}
-            />
-            <label>Last Name</label>
-            <input 
-                type="lastName" 
-                onChange={(e) => setLastName(e.target.value)}
-                value={lastName}
-            />
+                <label>First Name</label>
+                <input 
+                    type="firstName" 
+                    onChange={(e) => setFirstName(e.target.value)}
+                    value={firstName}
+                />
+                <label>Last Name</label>
+                <input 
+                    type="lastName" 
+                    onChange={(e) => setLastName(e.target.value)}
+                    value={lastName}
+                />
 
-            <label>Username</label>
-            <input 
-                type="username" 
-                onChange={(e) => setUsername(e.target.value)}
-                value={username}
-            />
-            <label>Email</label>
-            <input 
-                type="email" 
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-            />
+                <label>Username</label>
+                <input 
+                    type="username" 
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
+                />
+                <label>Email</label>
+                <input 
+                    type="email" 
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                />
 
-        <label>Password</label>
-            <input 
-                type="password" 
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-            />
-        <button disabled={isLoading}>Sign up</button>
-        { error && <div className="error">{error}</div> }
-        </form>
+            <label>Password</label>
+                <input 
+                    type="password" 
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                />
+            <button disabled={isLoading}>Sign up</button>
+            { error && <div className="error">{error}</div> }
+            </form>
+        </div>
     );
 }
  

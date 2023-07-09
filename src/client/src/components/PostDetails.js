@@ -54,7 +54,6 @@ const PostDetails = ({ post }) => {
             </Link>
             <div className="username-caption"> 
                 <Link to={`/Profile/${post.username}`}>
-                    <p>{post.userID}</p>
                     <p className="username">{post.username }&ensp;</p>
                 </Link>
                 <p className="caption">{post.caption}</p>

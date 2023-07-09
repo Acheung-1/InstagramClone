@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { usePostsContext } from '../hooks/usePostsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+import avatar from '../assets/avatar.png' 
 
 // components
 import PostDetails from '../components/PostDetails'
@@ -36,6 +37,21 @@ const Profile = () => {
 
   return ( 
     <div className="home">
+      <div className="profile">
+        <h1>{username}</h1>
+        <img className="profile-picture" src={avatar} alt="" />
+      </div>
+      {/* <label htmlFor="file-upload" className="custom-file-upload"> 
+                <img className="uploaded-image" src={image|| imageIcon} alt="" />
+            </label>
+            <input className = "upload-image" 
+                type="file" 
+                label="image"
+                name="image"
+                id="file-upload"
+                accept=",jpeg, .png, .jpeg"
+                onChange={(e) => handleFileUpload(e)}
+            /> */}
       { user && posts && user.username === posts[0].username && <PostForm />}
       {/* <PostForm /> */}
         <div className="posts">
