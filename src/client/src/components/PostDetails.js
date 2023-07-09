@@ -52,8 +52,11 @@ const PostDetails = ({ post }) => {
                     <img src={post.image} alt={post.caption}></img>
                 </div>
             </Link>
-            <div className="username-caption">
-                <p className="username">{post.username }&ensp;</p>
+            <div className="username-caption"> 
+                <Link to={`/Profile/${post.userID}`}>
+                    <p>{post.userID}</p>
+                    <p className="username">{post.username }&ensp;</p>
+                </Link>
                 <p className="caption">{post.caption}</p>
             </div>
             {/* <span className="material-symbols-outlined" onClick={handleFavorite}>favorite</span> */}

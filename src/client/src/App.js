@@ -3,7 +3,8 @@ import { useAuthContext } from './hooks/useAuthContext'
 
 // pages & components
 import Home from './pages/Home'
-import MyProfile from './pages/MyProfile'
+// import MyProfile from './pages/MyProfile'
+import Profile from './pages/Profile'
 import SinglePost from './pages/SinglePost'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
@@ -32,9 +33,13 @@ function App() {
               path="/signup" 
               element = {!user ? <SignUp/> : <Navigate to="/" />}
             />
-            <Route 
+            {/* <Route 
               path ="/MyProfile"
               element = {user ? <MyProfile /> : <Navigate to="/login" />}
+            /> */}
+            <Route 
+              path ="/Profile/:id"
+              element = {user ? <Profile /> : <Navigate to="/login" />}
             />
             <Route 
               path="/post/:id" 

@@ -1,8 +1,8 @@
 const express = require('express')
 const {
     getPosts,
-    getMyPosts,
     getPost,
+    getUserPosts,
     createPost,
     deletePost,
     updatePost
@@ -18,8 +18,8 @@ router.use(requireAuth)
 // GET all posts
 router.get('/', getPosts)
 
-// GET my posts
-router.get('/MyProfile', getMyPosts)
+// GET user posts
+router.get('/Profile/:id', getUserPosts)
 
 // GET a single post
 router.get('/:id', getPost)

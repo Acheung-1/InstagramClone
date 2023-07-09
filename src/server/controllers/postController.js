@@ -8,13 +8,24 @@ const getPosts = async(req, res) => {
     res.status(200).json(posts)
 }
 
-// get all posts
-const getMyPosts = async(req, res) => {
-    const userID = req.user._id
-    const posts = await Post.find({ userID }).sort({createdAt: -1})
+
+// get user posts
+const getUserPosts = async(req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such user"})
+    }
+
+    const posts = await Post.find({ userID: id }).sort({createdAt: -1})
+    
+    if (!posts) {
+        return res.status(400).json({error: 'User has no posts'})
+    }
 
     res.status(200).json(posts)
 }
+
 
 // get a single post
 const getPost = async (req, res) => {
@@ -32,6 +43,7 @@ const getPost = async (req, res) => {
 
     res.status(200).json(post)
 }
+
 
 // create a new post
 const createPost = async(req, res) => {
@@ -63,6 +75,7 @@ const createPost = async(req, res) => {
     }
 }
 
+
 // delete a post
 const deletePost = async (req, res) => {
     const { id } = req.params
@@ -79,6 +92,7 @@ const deletePost = async (req, res) => {
 
     res.status(200).json(post)
 }
+
 
 // update a post
 const updatePost = async (req, res) => {
@@ -101,7 +115,7 @@ const updatePost = async (req, res) => {
 
 module.exports = {
     getPosts,
-    getMyPosts,
+    getUserPosts,
     getPost,
     createPost, 
     deletePost, 

@@ -19,7 +19,7 @@ const Navbar = () => {
                 <Link to="/">
                     <h1>Picture</h1>
                 </Link>
-                <Link to="/MyProfile">
+                <Link to={user ? `/Profile/${user._id}` : "/login"}>
                     <h1>My Profile</h1>
                 </Link>
                 <Link to="/post/64a3999907b9f278c27d232">
@@ -44,7 +44,7 @@ const Navbar = () => {
                 </nav>
             </div>
         </header>
-     );
+    );
 }
  
 export default Navbar;
