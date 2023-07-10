@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthContext } from './hooks/useAuthContext'
+import { useState, useEffect } from 'react'
 
 // pages & components
 import Home from './pages/Home'
-// import MyProfile from './pages/MyProfile'
 import Profile from './pages/Profile'
 import SinglePost from './pages/SinglePost'
 import SignUp from './pages/SignUp'
@@ -15,12 +15,19 @@ import NoMatch from './pages/NoMatch'
 function App() {
   const { user } = useAuthContext()
 
+  const [loggedIn, setLoggedIn] = useState(null);
+
+  useEffect(() => {
+    const loggedUser = localStorage.getItem('user');
+    setLoggedIn(Boolean(loggedUser));
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
         <div className="pages">
-          <div className="content">
+          { loggedIn !== null &&
             <Routes>
               <Route 
                 exact path ="/"
@@ -44,7 +51,7 @@ function App() {
               />
               <Route path="*" element={ <NoMatch/> } />
             </Routes>
-          </div>
+          }
         </div>
       </BrowserRouter>
       

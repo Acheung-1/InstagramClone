@@ -28,7 +28,7 @@ const Navbar = () => {
                         <h1>Home</h1>
                     </Link> */}
                     <Link to={user ? `/Profile/${user.username}` : "/login"}>
-                        <img className="profile-picture" src={avatar} alt="" />
+                        <img className="profile-picture-nav" src={avatar} alt="" />
                     </Link>
                     <Link to={user ? `/Profile/${user.username}` : "/login"}>
                         <h1>My Profile</h1>

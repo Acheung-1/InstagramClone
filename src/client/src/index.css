@@ -39,7 +39,6 @@ header .navbar-main {
   z-index: 1000; 
   background-color: #e0cfcf; 
   padding: 30px; 
-  transition: width 0.3s ease;
   font-size: 18px;
   text-align: left;
 }
@@ -61,13 +60,18 @@ header a:hover {
   text-decoration: none;
   display: block;
 }
-.banner {
+div.banner {
   display: flex;
   align-items: center;
 }
-.icon{
+img.icon{
   width: 30px;
   height: 30px;
+}
+img.profile-picture-nav{
+  width: 200px;
+  border-radius: 50%;
+  border: 5px solid #555;
 }
 
 /* Home and profiles */
@@ -80,7 +84,6 @@ header a:hover {
   box-shadow: 2px 2px 5px #383838;
   text-align: left;
   min-width: 20em;
-
 }
 .post-details h4 {
   margin: 0 0 10px 0;
@@ -129,6 +132,7 @@ form.create {
 label, input {
   display: block;
   text-align: center;
+  resize: none;
 }
 .custom-file-upload {
   cursor: pointer;
@@ -207,10 +211,7 @@ img.profile-picture{
     width: 100%;
     justify-content: space-between;
   }
-  /* header .navbar-main {
-    height: 20px; 
-    width: 100%; 
-  } */
+  
   header .navbar-main:hover {
     display: flex;
     align-items: center;
@@ -225,10 +226,11 @@ img.profile-picture{
   
   .banner-right {
     display: flex;
-    margin-left: auto
+    margin-left: auto;
+    align-items: center;
   }
   
-  .icon {
+  img.icon {
     width: 30px; /* Set your desired icon size */
     height: 30px;
   }
@@ -244,17 +246,17 @@ img.profile-picture{
     display: block;
   }
   
-  h3 {
+  .banner h3 {
     /* font-size: 15px; */
     margin-left: 10px;
   }
   
-  h1 {
+  .navbar-main h1 {
     font-size: 20px;
     margin: 0 10px;
   }
   
-  .profile-picture {
+  img.profile-picture-nav {
     display: none;
   }
   
