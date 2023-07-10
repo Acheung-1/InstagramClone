@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-// import { usePostsContext } from '../hooks/usePostsContext'
+import { usePostsContext } from '../hooks/usePostsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import NoMatch from './NoMatch'
 
@@ -13,6 +13,7 @@ const SinglePost = () => {
   const [posts, setPosts] = useState(null)
   const [exists, setExists] = useState(true)
   const { user } = useAuthContext()
+  
 
   useEffect(() => {
     const fetchPosts = async () => {

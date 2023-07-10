@@ -29,6 +29,31 @@ const PostDetails = ({ post }) => {
         }
     }
 
+    const handleLike = async () => {
+        if (!user) {
+            return
+        }
+        
+        const increment = post.likes+1
+
+        const response = await fetch('/api/posts/' + post._id, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                likes: increment
+            }),
+            headers: {
+                'Authorization' : `Bearer ${user.token}`,
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        })
+        const json = await response.json()
+        json.likes = json.likes + 1
+
+        if (response.ok) {
+            dispatch({type: 'INCREMENT_LIKES', payload: json})
+        }
+    }
+
     // const handleFavorite = async (post._id) => {
     //     const response = await fetch('/api/posts/' + post._id, {
     //         method: 'PATCH'
@@ -57,7 +82,10 @@ const PostDetails = ({ post }) => {
                 </Link>
                 <p className="caption">{post.caption}</p>
             </div>
-            {/* <span className="material-symbols-outlined" onClick={handleFavorite}>favorite</span> */}
+
+            {/* post.likedArray.IndexOf(user.username) >= 0; */}
+            <span className="material-symbols-outlined" onClick={handleLike}>favorite</span>
+            
             <p><strong>Likes: </strong> {post.likes}</p>
             <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>
         </div>

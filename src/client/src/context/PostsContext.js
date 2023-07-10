@@ -17,22 +17,32 @@ export const postsReducer = (state, action) => {
                 posts: state.posts.filter((p) => p._id !== action.payload._id)
             }
         case 'INCREMENT_LIKES':
-            // state.posts.updateOne({_id: action.payload._id}, {$inc: {likes: 1}})
-            return state
-            // const postId = action.payload._id;
-            // const updatedPost = {
-            //     ...state.posts[postId],
-            //     likes: state.posts[postId].likes + 1
-            // };
+            console.log(action.payload)
+            console.log(state)
+            const updatedPosts = state.posts.map((post) => {
+                if (post._id === action.payload._id) {
+                    return {
+                        ...post,
+                        likes: action.payload.likes,
+                    };
+                }
+                return post;
+            });
+    
+            return {
+                posts: updatedPosts
+            };
+            
             // return {
-            //     ...state,
-            //     posts: {
-            //     ...state.posts,
-            //     [postId]: updatedPost
-            //     }
+            //     posts: state.posts.map(post => {
+            //         if (post._id === action.payload._id) {
+            //             return {
+            //                 ...post
+            //             }
+            //         }
+            //         return post;
+            //     })
             // };
-            // // return state
-            // updateOne({_id: p._id}, {$inc: {likes: 1}})
             // return {
             //     posts: action.payload
             // }

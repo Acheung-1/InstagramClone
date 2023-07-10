@@ -27,10 +27,11 @@ router.get('/:id', getPost)
 // POST a new post
 router.post('/', createPost)
 
-// DLETE a post
+// DELETE a post
 router.delete('/:id', deletePost)
 
 // UPDATE a post
 router.patch('/:id', updatePost)
+
 
 module.exports = router
