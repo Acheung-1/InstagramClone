@@ -13,19 +13,17 @@ body {
   text-align: center;
 }
 .pages{
-  max-width: 100%;
+  max-width:100%;
   padding: 20px;
-  margin-left:350px;
   text-align: center;
-  min-width: 10em;
+  min-width: 30em;
+  align-items: center;
+  justify-content: center;
 }
-.content{
-  display: block;
-  max-width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  min-width: 20em;
+.container{
+  display: flex;
+  margin-left: 350px;
+  justify-content: center;
 }
 
 /* Navbar */
@@ -192,6 +190,7 @@ img.profile-picture{
   border: 5px solid #555;
 }
 
+/* Change nav bar when window gets smaller */
 @media (max-width: 950px) {
   header {
     position: fixed;
@@ -286,34 +285,11 @@ img.profile-picture{
   .pages{
     margin-left:0px; /* margin on left is gone */
     margin-top: 60px; /* needs to match heigh of navbar */
+    min-width: 25em;
+  }
+  .container{
+    display: flex;
+    margin-left: 0px;
+    justify-content: center;
   }
 }
-
-
-/* Tabs */
-.tabs {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	background-color: #d0b16a;
-	padding: 50px 10px 10px;
-}
-
-.tabs div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap
-}
-
-.tablinks {
-	padding: 10px 20px;
-	margin: 10px;
-	font-size: 16px;
-	background-color: #f2f2f2;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-  }

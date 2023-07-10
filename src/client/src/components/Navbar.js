@@ -23,26 +23,19 @@ const Navbar = () => {
                 <Link to="/">
                     <h1>Home</h1>
                 </Link>
-                <div className="banner-right">
-                    {/* <Link to="/">
-                        <h1>Home</h1>
-                    </Link> */}
-                    <Link to={user ? `/Profile/${user.username}` : "/login"}>
-                        <img className="profile-picture-nav" src={avatar} alt="" />
-                    </Link>
-                    <Link to={user ? `/Profile/${user.username}` : "/login"}>
-                        <h1>My Profile</h1>
-                    </Link>
-                    <Link to="/post/64a3999907b9f278c27d232">
-                        <h1>Liked</h1>
-                    </Link>
-                </div>
-                    {/* <Link to={user ? `/Profile/${user.username}` : "/login"}>
-        
-                        <img className="profile-picture" src={avatar} alt="" />
-                        <h1>My Profile</h1>
-                    </Link> */}
-                {/* </div/> */}
+                { user &&
+                    <div className="banner-right">
+                        <Link to={user ? `/Profile/${user.username}` : "/login"}>
+                            <img className="profile-picture-nav" src={avatar} alt="" />
+                        </Link>
+                        <Link to={user ? `/Profile/${user.username}` : "/login"}>
+                            <h1>My Profile</h1>
+                        </Link>
+                        <Link to="/post/64a3999907b9f278c27d232">
+                            <h1>Liked</h1>
+                        </Link>
+                    </div>
+                }
                 <nav>
                     { user && (
                         <div>

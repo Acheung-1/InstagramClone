@@ -26,6 +26,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <div className="container">
         <div className="pages">
           { loggedIn !== null &&
             <Routes>
@@ -52,6 +53,7 @@ function App() {
               <Route path="*" element={ <NoMatch/> } />
             </Routes>
           }
+        </div>
         </div>
       </BrowserRouter>
       
