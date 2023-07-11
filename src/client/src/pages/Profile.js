@@ -128,7 +128,7 @@ const Profile = () => {
           </div>
         )}
         <p>{about}</p>
-        <button onClick={handleHide}>Edit profile</button>
+        {username === user.username && <button onClick={handleHide}>Edit profile</button>}
         <hr />
       </div>
       { user && user.username === username && <PostForm />}
