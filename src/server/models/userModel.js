@@ -29,7 +29,7 @@ const userSchema = new Schema({
     }, 
     about: {
         type: String,
-        defaultValue: "hello"
+        defaultValue: ""
     },
     // confirmed: {
     //     type: Boolean,

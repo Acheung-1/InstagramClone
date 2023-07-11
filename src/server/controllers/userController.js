@@ -47,5 +47,26 @@ const signUpUser = async (req, res) => {
     }
 }
 
+// get profile picture
+const getAvatar = async (req, res) => {
+    const { username } = req.params
 
-module.exports = { loginUser, signUpUser }
+    const about = await User.findOne({ username }, {profilePicture: 1, about: 1})
+
+    res.status(200).json(about)
+}
+
+// update profile picture
+const updateAvatar = async (req, res) => {
+    const { username } = req.params
+
+    const user = await User.findOneAndUpdate({username: username}, {
+        ...req.body
+    })
+
+    
+    res.status(200).json({ about: user.about, profilePicture: user.profilePicture })
+}
+
+
+module.exports = { loginUser, signUpUser, getAvatar, updateAvatar }
