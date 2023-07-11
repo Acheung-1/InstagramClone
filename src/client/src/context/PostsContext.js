@@ -17,8 +17,6 @@ export const postsReducer = (state, action) => {
                 posts: state.posts.filter((p) => p._id !== action.payload._id)
             }
         case 'INCREMENT_LIKES':
-            console.log(action.payload)
-            console.log(state)
             const updatedPosts = state.posts.map((post) => {
                 if (post._id === action.payload._id) {
                     return {
@@ -28,24 +26,9 @@ export const postsReducer = (state, action) => {
                 }
                 return post;
             });
-    
             return {
                 posts: updatedPosts
             };
-            
-            // return {
-            //     posts: state.posts.map(post => {
-            //         if (post._id === action.payload._id) {
-            //             return {
-            //                 ...post
-            //             }
-            //         }
-            //         return post;
-            //     })
-            // };
-            // return {
-            //     posts: action.payload
-            // }
         default:
             return state
     }

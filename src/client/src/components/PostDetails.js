@@ -54,18 +54,6 @@ const PostDetails = ({ post }) => {
         }
     }
 
-    // const handleFavorite = async (post._id) => {
-    //     const response = await fetch('/api/posts/' + post._id, {
-    //         method: 'PATCH'
-    //     })
-    //     const json = await response.json()
-
-    //     if (response.ok) {
-    //         await json.updateOne({post})
-    //         dispatch({type: 'INCREMENT_LIKES', payload: json})
-    //     }
-    // }
-
     return ( 
         <div className="post-details">
             {post.username === user.username && <span className="material-symbols-outlined" onClick={handleDelete}>delete</span>}
@@ -87,7 +75,11 @@ const PostDetails = ({ post }) => {
             <span className="material-symbols-outlined" onClick={handleLike}>favorite</span>
             
             <p><strong>Likes: </strong> {post.likes}</p>
+            <p>{post.createAt}</p>
             <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>
+            {/* { post.updatedAt &&
+                <p>{formatDistanceToNow(new Date(post.updatedAt), { addSuffix: true })}</p>
+            } */}
         </div>
      );
 }

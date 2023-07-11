@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { useLogIn } from '../hooks/useLogIn'
 
 const Login = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const {logIn, error, isLoading} = useLogIn()
+    const [ username, setUsername ] = useState('')
+    const [ password, setPassword ] = useState('')
+    const { logIn, error, isLoading } = useLogIn()
 
     const handleSubmit = async (e) => {
         e.preventDefault()

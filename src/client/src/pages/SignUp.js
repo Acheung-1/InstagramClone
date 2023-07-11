@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { useSignUp } from "../hooks/useSignUp"
 
 const SignUp = () => {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [ firstName, setFirstName ] = useState('')
+    const [ lastName, setLastName ] = useState('')
+    const [ username, setUsername ] = useState('')
+    const [ email, setEmail ] = useState('')
+    const [ password, setPassword ] = useState('')
     const { signUp, error, isLoading } = useSignUp()
 
     const handleSubmit = async (e) => {

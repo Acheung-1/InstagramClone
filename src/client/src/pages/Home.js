@@ -6,11 +6,12 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import PostDetails from '../components/PostDetails'
 
 const Home = () => {
-    const {posts, dispatch} = usePostsContext()
-    const {user} = useAuthContext()
+    const { posts, dispatch } = usePostsContext()
+    const { user } = useAuthContext()
 
     useEffect(() => {
         const fetchPosts = async () => {
+            dispatch({type: 'SET_POSTS', payload: null})
             const response = await fetch('api/posts', {
                 headers: {
                     'Authorization' : `Bearer ${user.token}`

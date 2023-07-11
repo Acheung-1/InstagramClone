@@ -10,8 +10,8 @@ import PostForm from '../components/PostForm'
 
 const Profile = () => {
   const { username } = useParams();
-  const {posts, dispatch} = usePostsContext()
-  const {user} = useAuthContext()
+  const { posts, dispatch } = usePostsContext()
+  const { user } = useAuthContext()
 
   useEffect(() => {
     const fetchPosts = async () => {
