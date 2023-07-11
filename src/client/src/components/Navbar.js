@@ -1,13 +1,35 @@
 import { Link } from 'react-router-dom'
 import { useLogOut } from '../hooks/useLogOut'
 import { useAuthContext } from '../hooks/useAuthContext'
-import avatar from '../assets/avatar.png' 
+import { useEffect, useState } from 'react'
+import avatarIcon from '../assets/avatarIcon.png' 
 import icon from '../assets/Moments.png' 
 
 
 const Navbar = () => {
     const { logout } = useLogOut()
     const { user } = useAuthContext()
+
+    const [ avatar, setAvatar] = useState("")
+
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const response = await fetch('/api/user/Profile/'+user.username, {
+                method: "GET",
+                headers: {
+                    'Authorization' : `Bearer ${user.token}`
+                }
+            })
+
+            const json = await response.json()
+
+            setAvatar(json.profilePicture)
+        }
+        if (user) {
+            fetchUser()
+          }
+        }, [user, avatar])
 
     const handleClick = () => {
         logout()
@@ -26,13 +48,13 @@ const Navbar = () => {
                 { user &&
                     <div className="banner-right">
                         <Link to={user ? `/Profile/${user.username}` : "/login"}>
-                            <img className="profile-picture-nav" src={avatar} alt="" />
+                            <img className="profile-picture-nav" src={avatar || avatarIcon} alt="" />
                         </Link>
                         <Link to={user ? `/Profile/${user.username}` : "/login"}>
                             <h1>My Profile</h1>
                         </Link>
-                        <Link to="/post/64a3999907b9f278c27d232">
-                            <h1>Liked</h1>
+                        <Link to={`/CreatePost/${user.username}`}>
+                            <h1>Create Post</h1>
                         </Link>
                     </div>
                 }

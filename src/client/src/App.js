@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 import Navbar from './components/Navbar'
 import NoMatch from './pages/NoMatch'
+import Create from './pages/Create'
 
 
 function App() {
@@ -49,6 +50,10 @@ function App() {
               <Route 
                 path="/post/:id" 
                 element = {user ? <SinglePost/> : <Navigate to="/login" />}
+              />
+              <Route 
+                path ="/CreatePost/:username"
+                element = {user ? <Create /> : <Navigate to="/login" />}
               />
               <Route path="*" element={ <NoMatch/> } />
             </Routes>

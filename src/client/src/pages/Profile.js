@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { usePostsContext } from '../hooks/usePostsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
-import avatarIcon from '../assets/avatar.png' 
+import avatarIcon from '../assets/avatarIcon.png' 
 
 // components
 import PostDetails from '../components/PostDetails'
-import PostForm from '../components/PostForm'
 
 const Profile = () => {
   const { username } = useParams();
@@ -131,7 +130,6 @@ const Profile = () => {
         {username === user.username && <button onClick={handleHide}>Edit profile</button>}
         <hr />
       </div>
-      { user && user.username === username && <PostForm />}
         <div className="posts">
           {posts && posts.map(post => (
             <PostDetails post={post} key={post._id}/>

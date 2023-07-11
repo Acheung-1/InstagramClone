@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { usePostsContext } from '../hooks/usePostsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { Link } from "react-router-dom";
 
 
 // components
@@ -37,6 +38,7 @@ const SinglePost = () => {
   return ( 
     <div className="home">
         <div className="posts">
+          <Link to="/">Click to go back to homepage</Link>
           {posts && posts.map(post => (
             <PostDetails post={post} key={post._id}/>
           ))}

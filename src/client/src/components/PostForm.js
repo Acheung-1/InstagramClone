@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { usePostsContext } from '../hooks/usePostsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
+import { useNavigate } from 'react-router-dom'
 import imageIcon from '../assets/imageIcon.png'
+
 
 
 const PostForm = () => {
@@ -14,6 +16,8 @@ const PostForm = () => {
     const likes = 0
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
+
+    const navigate = useNavigate()
 
     const handleFileUpload = async (e) => {
         const file = e.target.files[0]
@@ -56,6 +60,7 @@ const PostForm = () => {
             setEmptyFields([])
             // console.log('new post added', json)
             dispatch({type: 'CREATE_POST', payload: json})
+            navigate('/')
         }
     }
     
