@@ -22,6 +22,7 @@ export const postsReducer = (state, action) => {
                     return {
                         ...post,
                         likes: action.payload.likes,
+                        userLiked: action.payload.userLiked
                     };
                 }
                 return post;

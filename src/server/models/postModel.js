@@ -30,6 +30,9 @@ const postSchema = new Schema({
     email: {
         type: String,
         required: true
+    },
+    userLiked: {
+        type: [String]
     }
 }, { timestamps: true })
 

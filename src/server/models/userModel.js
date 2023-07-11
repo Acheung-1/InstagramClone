@@ -39,10 +39,10 @@ const userSchema = new Schema({
     // verificationCode: {
     //     type: String
     // },
-    profilePicture:{
+    profilePicture: {
         type: String,
         defaultValue:""
-    }
+    },
 })
 
  // static signup method
